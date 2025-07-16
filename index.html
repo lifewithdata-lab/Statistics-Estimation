@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics-Estimation</title>
+</head>
+<body>
+    <article>
+        <h1>
+            <em>Chapter 7</em><br>
+            推定（推定量の一致性・不偏性、区間推定、母平均・母比率・母分散の区間推定
+        </h1>
+
+        <h2>
+            <em>【概要】</em>       
+        </h2>
+        <p><em>推定</em>とは、標本データを用いて母集団の未知の特性（母数）を予測する統計手法である。推定には「点推定」と「区間推定」の二つがある。
+        </p>
+        <p><em>点推定（Point Estimation）</em><br>
+            母集団の未知のパラメータ（例：母平均、母分散など）を一つの値で推定する方法である。例えば、標本平均は母平均の点推定量である。
+        </p>
+        <p><em>区間推定（Interval Estimation）</em><br>
+            母数が一定の信頼度で含まれる範囲（信頼区間）を求める方法である。例えば95％信頼区間とは、同じ方法で推定を繰り返した際、95％の割合で母数を含むような区間を意味する。
+        </p>
+
+        <h2>
+            <em>推定量の評価基準：</em><br>
+            <p><em>不偏性（Unbiasedness）</em>：推定量の期待値が母数に一致する。
+            </p>
+            <p><em>一致性（Consistency）</em>：標本サイズが増えると推定量が母数に近づく。
+            </p>
+        
+        <h2>
+            <em>母平均の推定（母分散不明）</em><br>
+        </h2>
+        <p>標本サイズ（n）、標本平均（\bar{x}）、標準偏差（s）を用いて、信頼度を(100−\alpha)%とした場合の母平均（\mu）の信頼区間を推定する。</p><br>
+        <p>使用分布：t分布（自由度 n-1）</p>
+        <p>条件：正規性が仮定される or n が小さいとき</p>
+        <p>グラフ：t\ =\ \pm2.145（自由度14、95%）を示す両側信頼区間</p>
+        <img src="tplot.png" alt="t分布のグラフ" width="458"><br>
+    </article>
+</body>
+</html>
