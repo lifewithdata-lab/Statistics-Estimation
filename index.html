@@ -4,41 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistics-Estimation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <script>
+    window.MathJax && MathJax.typeset();
+    </script>
+
+
 </head>
 <body>
     <article>
         <h1>
-            <em>Chapter 7</em><br>
+            <strong>Chapter 7</strong><br>
             推定（推定量の一致性・不偏性、区間推定、母平均・母比率・母分散の区間推定
         </h1>
 
         <h2>
-            <em>【概要】</em>       
+            <strong>【概要】</strong>       
         </h2>
-        <p><em>推定</em>とは、標本データを用いて母集団の未知の特性（母数）を予測する統計手法である。推定には「点推定」と「区間推定」の二つがある。
+        <p><strong>推定</strong>とは、標本データを用いて母集団の未知の特性（母数）を予測する統計手法である。推定には「点推定」と「区間推定」の二つがある。
         </p>
-        <p><em>点推定（Point Estimation）</em><br>
+        <p><strong>点推定（Point Estimation）</strong><br>
             母集団の未知のパラメータ（例：母平均、母分散など）を一つの値で推定する方法である。例えば、標本平均は母平均の点推定量である。
         </p>
-        <p><em>区間推定（Interval Estimation）</em><br>
-            母数が一定の信頼度で含まれる範囲（信頼区間）を求める方法である。例えば95％信頼区間とは、同じ方法で推定を繰り返した際、95％の割合で母数を含むような区間を意味する。
+        <p><strong>区間推定（Interval Estimation）</strong><br>
+            母数が一定の信頼度で含まれる範囲（信頼区間）を求める方法である。例えば95%信頼区間とは、同じ方法で推定を繰り返した際、95%の割合で母数を含むような区間を意味する。
         </p>
 
         <h2>
-            <em>推定量の評価基準：</em><br>
-            <p><em>不偏性（Unbiasedness）</em>：推定量の期待値が母数に一致する。
-            </p>
-            <p><em>一致性（Consistency）</em>：標本サイズが増えると推定量が母数に近づく。
-            </p>
-        
-        <h2>
-            <em>母平均の推定（母分散不明）</em><br>
+            <strong>推定量の評価基準：</strong><br>
         </h2>
-        <p>標本サイズ（n）、標本平均（\bar{x}）、標準偏差（s）を用いて、信頼度を(100−\alpha)%とした場合の母平均（\mu）の信頼区間を推定する。</p><br>
-        <p>使用分布：t分布（自由度 n-1）</p>
-        <p>条件：正規性が仮定される or n が小さいとき</p>
-        <p>グラフ：t\ =\ \pm2.145（自由度14、95%）を示す両側信頼区間</p>
-        <img src="tplot.png" alt="t分布のグラフ" width="458"><br>
+        <p><strong>不偏性（Unbiasedness）</strong>：推定量の期待値が母数に一致する。
+        </p>
+        <p><strong>一致性（Consistency）</strong>：標本サイズが増えると推定量が母数に近づく。
+        </p>
+        
+        
+        <h2><strong>母平均の推定（母分散不明）</strong><br>
+        </h2>
+        <p>標本サイズ（\(n\)）、標本平均（\(\bar{x}\)）、標準偏差（\(s\)）を用いて、信頼度を(\(100-\alpha\))%とした場合の母平均（\(\mu\)）の信頼区間を推定する。</p><br>
+        <p>使用分布：\(t\)分布（自由度 \(n-1\)）</p>
+        <p>条件：正規性が仮定される or \(n\) が小さいとき</p>
+        <p>グラフ：\(t\ =\ \pm2.145\)（自由度14、95%）を示す両側信頼区間</p>
+        <img src="tplot.svg" alt="t分布のグラフ" width="458"><br>
+        <p>母平均（\(\mu\)）の信頼区間を推定する数式：</p>
+        \[
+        \bar{x} \pm t_{\alpha/2,\, n-1} \cdot \frac{s}{\sqrt{n}}
+        \]
+
+        <h2><strong>母比率の推定</strong>
+        </h2>
+        <p>標本サイズ（\(n\)）と標本比率（\(p\)）を用いて、信頼度を(\(100-\alpha\))%とした場合の母比率（\(\pi\)）の信頼区間を推定する。
+        </p>
+        <p>使用分布：標準正規分布（\(Z分布\)）</p>
+        <p>条件：\( n\hat{p} \geq 5 \) かつ \( n(1-p) \geq 5 \)を満たすとき近似可
+        </p>
+        <p>グラフ：95%信頼区間を指定すると、中央に\(Z = 0\)、両側に \(Z\)値±1.96 を赤線で示す</p>
+        <img src="zplot.svg" alt="Z分布のグラフ" width="458"><br>
+        <p>母比率（\(\pi\)）の信頼区間を推定する数式：</p>
+        \[
+        \hat{p} \pm z_{\alpha/2} \cdot \sqrt{ \dfrac{ \hat{p}(1 - \hat{p}) }{n} }
+        \]
+
+        <h2><strong>母分散の推定</strong></h2>
+        <p>標本サイズ（\(n\)）と不偏分散（\(s^2\)）を用いて、信頼度を(\(100-\alpha\))%とした場合の母分散（\(\sigma^2\)）の信頼区間を推定する。</p>
+        <p>使用分布：カイ二乗分布（自由度 \(n-1\)）</p>
+        <p>条件：母集団が正規分布に従うと仮定</p>
+        <p>グラフ：カイ二乗分布において、自由度 \(n-1 = 14\) の時、95%信頼区間は以下のように表される</p>
+        \[
+        \chi^2_{(0.025)} = 5.629, \ \chi^2_{(0.975)} = 26.119
+        \]
+        <img src="chi2plot.svg" alt="カイ二乗分布のグラフ" width="458"><br>
+        <p>母分散（\(\sigma^2\)）の信頼区間を推定する数式：</p>
+        \[
+        \left( \frac{(n - 1)s^2}{\chi^2_{1 - \alpha/2}},\ \frac{(n - 1)s^2}{\chi^2_{\alpha/2}} \right)
+        \]
+
+        <h2><strong>【例題】</strong></h2>
+
+        <h3><strong>例題1: </strong>母平均の区間推定（2019年6月）</h3>
+        <p>池に生息する魚で目印の付いた魚の割合を推定したい。まず魚を200匹捕まえ、そのうち20匹が目印付きだった。このとき母比率 \(p\) の95%信頼区間を求めよ。</p><br>
+
+        <h3><strong>例題2: </strong>母比率の区間推定（母分散既知）</h3>
+        <p>日本人男性100人の身長を調べたら平均が172 cm、母分散はとする。このとき母平均 \(\mu\) の95%信頼区間を求めよ。</p>
+
+        <h3><strong>例題3: </strong>母分散の区間推定</h3>
+        <p>標本サイズが15のとき、標本分散が25だった。母分散の95%信頼区間を求めよ。（自由度14の\(\chi^2\) 分布：
+        \(\chi^2_{(0.025)} = 5.629, \ \chi^2_{(0.975)} = 26.119\)</p>
+
+        <h2><strong>【例題の解説】</strong></h2>
+        <h3><strong>例題1: </strong></h3>
+        <ol>
+            <li>標本比率を計算：
+            \[
+            \hat{p} = \frac{20}{200} = 0.10
+            \]
+            </li>
+            <li>二項分布を正規近似。標準誤差：
+            \[
+            \sigma_{\hat{p}} = \sqrt{ \frac{ \hat{p}(1 - \hat{p}) }{n} } = \sqrt{ \frac{ 0.1 \times 0.9 }{200} } = 0.0212
+            \]
+            </li>
+            <li>95%信頼区間の\(Z\) 値は1.96。</li>
+            <li>95%信頼区間：
+            \[
+            0.10 \pm 1.96 \times 0.0212 = [0.0585,\ 0.1415]
+            \]
+            </li>
+        </ol>
+
+
+
+
     </article>
 </body>
 </html>
