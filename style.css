@@ -87,3 +87,17 @@ p.code {
   padding: 0.5em;
   border-radius: 4px;
 }
+
+img {
+  max-width: 90%;
+  height: auto;
+  display: block;
+}
+
+ol li {
+  word-break: break-word;
+  white-space: normal;
+}
+
+
+
