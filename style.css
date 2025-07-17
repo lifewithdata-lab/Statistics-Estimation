@@ -94,16 +94,20 @@ img {
   display: block;
 }
 
-/* Only style block LaTeX inside list items */
+
+/* Fix block LaTeX inside <li> so it doesn't overflow */
 li mjx-container.MathJax_Display {
   display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
   max-width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   padding-left: 1em;
   padding-right: 1em;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+  white-space: nowrap; /* prevent forced wrapping */
 }
+
 
 /* Ensure inline LaTeX remains inline */
 li mjx-container:not(.MathJax_Display) {
