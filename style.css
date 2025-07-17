@@ -113,6 +113,13 @@ li mjx-container.MathJax_Display mjx-math {
   min-width: 100%;
 }
 
+li {
+  overflow-x: visible;
+}
+
+article {
+  overflow-x: visible;
+}
 
 
 /* Ensure inline LaTeX remains inline */
