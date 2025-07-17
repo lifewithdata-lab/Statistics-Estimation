@@ -96,7 +96,7 @@ img {
 
 
 /* Fix block LaTeX inside <li> so it doesn't overflow */
-li mjx-container.MathJax_Display {
+
 li mjx-container.MathJax_Display {
   display: block;
   overflow-x: auto;
