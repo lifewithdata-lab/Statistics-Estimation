@@ -115,13 +115,130 @@
             0.10 \pm 1.96 \times 0.0212 = [0.0585,\ 0.1415]
             \]
             </li>
+            <li></li>
         </ol>
 
-        <h2>hello</h2>
+        <h3><strong>例題2: </strong>母比率の区間推定</h3>
+        <ol>
+            <li>標本平均：\( \bar{x} = 172 \)</li>
+            <li>標準偏差：\( \sigma = 5.5 \)、標本数 \( n = 10 \)</li>
+            <li>標準誤差：
+                \[
+                \sigma_{\bar{x}} = \frac{5.5}{\sqrt{100}} = 0.55
+                \]
+            </li>
+            <li>95%信頼区間の\(Z\)値は1.96。</li>
+            <li>95%信頼区間：
+                \[
+                172 \pm 1.96 \times 0.55 = [170.92,\ 173.08]
+                \]
+            </li>
+        
+        <h3><strong>例題3: </strong>母分散の区間推定</h3>
+        <ol>
+            <li>標本サイズ \(n = 15\)</li>
+            <li>標本分散\( s^2 = 25 \)</li>
+            <li>自由度\( \mathrm{df} = 14 \)</li>
+            <li>信頼水準：95%</li>
+            <li>\(\chi^2_{(0.025)} = 5.629, \ \chi^2_{(0.975)} = 26.119\)</li>
+            <li>母分散の区間推定式
+                \[
+                \left( \frac{(n - 1) s^2}{\chi^2_{0.975}},\ \frac{(n - 1) s^2}{\chi^2_{0.025}} \right)
+                = \left( \frac{14 \times 25}{26.119},\ \frac{14 \times 25}{5.629} \right)
+                = (13.39,\ 62.20)
+                \]
+            </li>
+        </ol>
 
+        <section class="python">
+        <h2><strong>【pythonでの解説】</strong></h2>
+        <h3><strong>例題1: </strong>母平均の区間推定</h3>
+        <p><strong>コード（statsmodels使用）: </strong></p>
+        <p>from statsmodels.stats.proportion import proportion_confint<br>
+           # パラメータ<br>
+           x = 20<br>
+           n = 200<br>
+           conf_int = proportion_confint(count=x, nobs=n, alpha=0.05, method='normal')<br>
+           print(conf_int)<br>
+        </p>
+        <p><strong>出力: </strong></p>
+        <p>(0.058497..., 0.141502...)</p>
 
+        <h3><strong>例題2: </strong>母比率の区間推定</h3>
+        <p><strong>コード:</strong></p>
+        <p>import scipy.stats as stats<br>
+           import numpy as np<br><br>
+           mean = 172<br>
+           sigma = 5.5<br>
+           n = 100<br>
+           se = sigma / np.sqrt(n)<br>
+           z = 1.96<br><br>
+           lower = mean - z * se<br>
+           upper = mean + z * se<br>
+           print((lower, upper))<br>
+        </p>
+        
+        <h3><strong>例題3: </strong>母分散の区間推定</h3>
+        <p><strong>コード:</strong></p>
+        <p>from scipy.stats import chi2<br>
+            n = 15<br>
+            s2 = 25<br>
+            df = n - 1<br><br>
+            chi2_lower = chi2.ppf(0.025, df)<br>
+            chi2_upper = chi2.ppf(0.975, df)<br><br>
+            lower = (df * s2) / chi2_upper<br>
+            upper = (df * s2) / chi2_lower<br><br>
+            print(round(lower, 2), round(upper, 2))<br>
+        </p>
+        <p><strong>出力: </strong></p>
+        <p>13.39 62.20</p>
 
+        </section>
 
+        <section class="r">
+        <h2><strong>【Rでの解説】</strong></h2>
+        <h3><strong>例題1: </strong>母平均の区間推定</h3>
+        <p><strong>コード:</strong></p>
+        <p># パラメータ<br>
+             x <- 20<br>
+                n <- 200<br>
+                p_hat <- x / n<br>
+                se <- sqrt(p_hat * (1 - p_hat) / n)<br>
+                z <- 1.96<br>
+                lower <- p_hat - z * se<br>
+                upper <- p_hat + z * se<br>
+                cat(lower, upper)<br>
+        </p>
+        <p><strong>出力: </strong></p>
+        <p>[1] 0.0585 0.1415</p>
+
+        <h3><strong>例題2: </strong></h3>
+        <p><strong>コード:</strong></p>
+        <p>mean <- 172<br>
+            sigma <- 5.5<br>
+            n <- 100<br>
+            se <- sigma / sqrt(n)<br>
+            z <- 1.96<br><br>
+            lower <- mean - z * se<br>
+            upper <- mean + z * se<br>
+            c(lower, upper)<br>
+        </p>
+        <p><strong>出力: </strong></p>
+        <p>[1] 170.92 173.08</p>
+
+        <h3><strong>例題3: </strong>母分散の区間推定</h3>
+        <p><strong>コード:</strong></p>
+        <p>n <- 15<br>
+            s2 <- 25<br>
+            df <- n - 1<br><br>
+            chi2_lower <- qchisq(0.025, df)<br>
+            chi2_upper <- qchisq(0.975, df)<br><br>
+            lower <- (df * s2) / chi2_upper<br>
+            upper <- (df * s2) / chi2_lower<br>
+            round(c(lower, upper), 2)<br>
+        </p>
+        <p><srong>出力: </strong></p>
+        <p>[1] 13.39 62.20</p>
     </article>
 </body>
 </html>
