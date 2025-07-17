@@ -7,9 +7,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    <script>
+    window.MathJax = {
+        tex: {
+            packages: ['base', 'ams']
+        }
+        };
     </script>
+    <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
     <script>
     window.MathJax && MathJax.typeset();
     </script>
@@ -106,7 +114,7 @@
             </li>
             <li>二項分布を正規近似。標準誤差：
             \[
-            \sigma_{\hat{p}} = \sqrt{ \frac{ \hat{p}(1 - \hat{p}) }{n} } =\allowbreak \sqrt{ \frac{ 0.1 \times 0.9 }{200} } =\allowbreak 0.0212
+            \sigma_{\hat{p}} = \sqrt{ \frac{ \hat{p}(1 - \hat{p}) }{n} } = \sqrt{ \frac{ 0.1 \times 0.9 }{200} } = 0.0212
             \]
             </li>
             <li>95%信頼区間の\(Z\) 値は1.96。</li>
@@ -129,7 +137,7 @@
             <li>95%信頼区間の\(Z\)値は1.96。</li>
             <li>95%信頼区間：
                 \[
-                172 \pm 1.96 \times 0.55 =\allowbreak [170.92,\ 173.08]
+                172 \pm 1.96 \times 0.55 = [170.92,\ 173.08]
                 \]
             </li>
         </ol>
@@ -140,11 +148,11 @@
             <li>標本分散\( s^2 = 25 \)</li>
             <li>自由度\( \mathrm{df} = 14 \)</li>
             <li>信頼水準：95%</li>
-            <li>\(\chi^2_{(0.025)} = 5.629, \allowbreak \ \chi^2_{(0.975)} = 26.119\)</li>
+            <li>\(\chi^2_{(0.025)} = 5.629, \ \chi^2_{(0.975)} = 26.119\)</li>
             <li>母分散の区間推定式
                 \[
                 \left( \frac{(n - 1) s^2}{\chi^2_{0.975}},\ \frac{(n - 1) s^2}{\chi^2_{0.025}} \right)
-                = \allowbreak \left( \frac{14 \times 25}{26.119},\ \frac{14 \times 25}{5.629} \right)
+                = \left( \frac{14 \times 25}{26.119},\ \frac{14 \times 25}{5.629} \right)
                 = (13.39,\ 62.20)
                 \]
             </li>
