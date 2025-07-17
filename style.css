@@ -12,7 +12,9 @@ article {
     background-color: white;
     padding: 5%;
     box-sizing:border-box;
-    overflow: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: hidden;
 }
 
 p {
@@ -112,15 +114,6 @@ li mjx-container.MathJax_Display mjx-math {
   width: max-content;
   min-width: 100%;
 }
-
-li {
-  overflow-x: visible;
-}
-
-article {
-  overflow-x: visible;
-}
-
 
 /* Ensure inline LaTeX remains inline */
 li mjx-container:not(.MathJax_Display) {
