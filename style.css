@@ -97,16 +97,22 @@ img {
 
 /* Fix block LaTeX inside <li> so it doesn't overflow */
 li mjx-container.MathJax_Display {
+li mjx-container.MathJax_Display {
   display: block;
-  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 0.5em 1em;
   box-sizing: border-box;
-  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
-  white-space: nowrap; /* prevent forced wrapping */
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
+
+/* Force MathJax inner content to behave */
+li mjx-container.MathJax_Display mjx-math {
+  width: max-content;
+  min-width: 100%;
+}
+
 
 
 /* Ensure inline LaTeX remains inline */
