@@ -133,6 +133,7 @@
                 172 \pm 1.96 \times 0.55 = [170.92,\ 173.08]
                 \]
             </li>
+        </ol>
         
         <h3><strong>例題3: </strong>母分散の区間推定</h3>
         <ol>
@@ -154,7 +155,7 @@
         <h2><strong>【pythonでの解説】</strong></h2>
         <h3><strong>例題1: </strong>母平均の区間推定</h3>
         <p><strong>コード（statsmodels使用）: </strong></p>
-        <p>from statsmodels.stats.proportion import proportion_confint<br>
+        <p class="code">from statsmodels.stats.proportion import proportion_confint<br>
            # パラメータ<br>
            x = 20<br>
            n = 200<br>
@@ -166,7 +167,7 @@
 
         <h3><strong>例題2: </strong>母比率の区間推定</h3>
         <p><strong>コード:</strong></p>
-        <p>import scipy.stats as stats<br>
+        <p class="code">import scipy.stats as stats<br>
            import numpy as np<br><br>
            mean = 172<br>
            sigma = 5.5<br>
@@ -180,7 +181,7 @@
         
         <h3><strong>例題3: </strong>母分散の区間推定</h3>
         <p><strong>コード:</strong></p>
-        <p>from scipy.stats import chi2<br>
+        <p class="code">from scipy.stats import chi2<br>
             n = 15<br>
             s2 = 25<br>
             df = n - 1<br><br>
@@ -199,7 +200,7 @@
         <h2><strong>【Rでの解説】</strong></h2>
         <h3><strong>例題1: </strong>母平均の区間推定</h3>
         <p><strong>コード:</strong></p>
-        <p># パラメータ<br>
+        <p class="code"># パラメータ<br>
              x <- 20<br>
                 n <- 200<br>
                 p_hat <- x / n<br>
@@ -214,7 +215,7 @@
 
         <h3><strong>例題2: </strong></h3>
         <p><strong>コード:</strong></p>
-        <p>mean <- 172<br>
+        <p class="code">mean <- 172<br>
             sigma <- 5.5<br>
             n <- 100<br>
             se <- sigma / sqrt(n)<br>
@@ -228,7 +229,7 @@
 
         <h3><strong>例題3: </strong>母分散の区間推定</h3>
         <p><strong>コード:</strong></p>
-        <p>n <- 15<br>
+        <p class="code">n <- 15<br>
             s2 <- 25<br>
             df <- n - 1<br><br>
             chi2_lower <- qchisq(0.025, df)<br>
@@ -237,7 +238,7 @@
             upper <- (df * s2) / chi2_lower<br>
             round(c(lower, upper), 2)<br>
         </p>
-        <p><srong>出力: </strong></p>
+        <p><strong>出力: </strong></p>
         <p>[1] 13.39 62.20</p>
     </article>
 </body>
