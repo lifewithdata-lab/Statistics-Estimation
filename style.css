@@ -97,6 +97,7 @@ img {
 ol li {
   word-break: break-word;
   white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 
